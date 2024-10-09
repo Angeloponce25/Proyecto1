@@ -84,7 +84,7 @@
             <input type="submit" value="Iniciar Sesión">
         </form>
         <div id="mensaje_error"></div>
-        <a href="password.html">¿Olvidaste tu contraseña?</a>
+        <a href="password.html">¿ Olvidaste tu contraseña ?</a>
         <a href="usuario.html">¿Deseas crear un nuevo usuario?</a>
     </div>
 </body>
