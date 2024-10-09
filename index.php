@@ -115,5 +115,16 @@
 
             alert(parametros);
 
+            $.ajax({
+	       url: "Controlador/controlador_sesion.php",
+		   type: "POST",
+		   data: parametros,
+     	   dataType: "html",
+		   success: function (datos)
+           {
+	     				 console.log(datos);
+			}
+		   }); 
+
         };
     </script>
