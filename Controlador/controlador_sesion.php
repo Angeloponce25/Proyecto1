@@ -1,8 +1,10 @@
 <?php
-if(isset($_POST['iniciarSesion'])) {
+include '../modelo/modelo_sesion.php';
 
-    
-    echo 'hola';
+if(isset($_POST['iniciarSesion'])) {
+  
+    $sql = iniciarSesion($_POST);
+    return $sql;
 
 }
 ?>
