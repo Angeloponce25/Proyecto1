@@ -77,25 +77,27 @@
     <div class="contenedor-principal">
         <img src="https://i.etsystatic.com/21694529/r/il/5cb395/2177520509/il_600x600.2177520509_di2w.jpg" alt="Logo"> 
         <h2>Bienvenido</h2>
-        <p>Ingresa tus credenciales para continuar</p>
-        <form id="loginForm">
+        <p>Formulario de Registro</p>
+        <form id="registerForm">
             <input type="text" id="usuario" name="usuario" placeholder="Correo Electrónico" >
             <input type="password" id="password" name="password" placeholder="Contraseña" >
-            <input type="submit" value="Iniciar Sesión">
+            <input type="password" id="password2" name="password2" placeholder="Repetir Contraseña" >
+            <input type="submit" value="Registrarse">
         </form>
         <div id="mensaje_error"></div>
-        <a href="password.html">¿ Olvidaste tu contraseña ?</a>
-        <a href="register.php">¿Deseas crear un nuevo usuario?</a>
+        <a href="index.php">Iniciar Sesion</a>
     </div>
 </body>
 </html>
 <script>
-        document.getElementById('loginForm').onsubmit = function(event) {
+    document.getElementById('registerForm').onsubmit = function(event) {
             event.preventDefault(); // Evita el envío del formulario y recarga de la página
             
             // Obtener valores de los campos
             var usuario = document.getElementById('usuario').value;
             var password = document.getElementById('password').value;
+            var password2 = document.getElementById('password2').value;
+
             if(usuario=='')
             {
                 document.getElementById('mensaje_error').innerHTML='<center>Ingrese el usuario</center>';
@@ -104,34 +106,30 @@
             {		
                 document.getElementById('mensaje_error').innerHTML='<center>Ingrese la contrase\u00F1a</center>';
             }
-        
-            //alert("Usuario: " + usuario + " - Contraseña: " + password);
-            var parametros = 
+            if(password != password2)
             {
-                iniciarSesion:1,
-			    usuario:usuario,
-			    password:password
-            };
-
-            alert(parametros);
-
-            $.ajax({
-	       url: "Controlador/controlador_sesion.php",
-		   type: "POST",
-		   data: parametros,
-     	   dataType: "html",
-		   success: function (datos)
-           {
-                if(datos=='SI')
+                document.getElementById('mensaje_error').innerHTML='<center> Las contrasenas no son iguales</center>';
+            }
+            else
+            {
+                var parametros = {
+                    registrarUsuario:1,
+                    usuario:usuario,
+                    password:password
+                };
+                $.ajax({
+                url: "Controlador/controlador_sesion.php",
+                type: "POST",
+                data: parametros,
+                dataType: "html",
+                success: function (datos)
                 {
-                    window.location.href= "dashboard.html";
-                }
-                else
-                {
-                    console.log('error');
-                }
-			}
-		   }); 
+                        document.getElementById('mensaje_error').innerHTML='<center>'+datos+'</center>';
+                    }
+                });
+
+            }
+             
 
         };
-    </script>
+</script>
