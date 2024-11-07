@@ -124,7 +124,7 @@
            {
                 if(datos=='SI')
                 {
-                    window.location.href= "dashboard.html";
+                    window.location.href= "dashboard.php";
                 }
                 else
                 {

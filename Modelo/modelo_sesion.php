@@ -1,5 +1,6 @@
 <?php
-     
+
+session_start();
 
 function iniciarSesion($parametro)
 {
@@ -13,6 +14,7 @@ function iniciarSesion($parametro)
     if($ejecutar->num_rows > 0)
     {
         echo 'SI';
+        $_SESSION['cliente'] = $usuario;
     }
     else
     {
