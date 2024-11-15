@@ -22,13 +22,23 @@ while($recorre = $ejecutar->fetch_assoc())
                     <th>Compra</th>
                     <th>Venta</th>
                     <th>Stock</th>
-                </tr></table>';
-                
+                </tr>';
+
     foreach($array_productos as $productos)
     {
         
-        echo $productos['descripcion'];   
+        echo '<tr>
+                    <td>'.$productos['idproducto'].'</td>
+                    <td>'.$productos['descripcion'].'</td>
+                    <td>'.$productos['fecha'].'</td>
+                    <td>'.$productos['estado'].'</td>
+                    <td>'.$productos['pcompra'].'</td>
+                    <td>'.$productos['pventa'].'</td>
+                    <td>'.$productos['stock'].'</td>
+                </tr>';   
     }
+    
+    echo '</table>';
 
 }
 
