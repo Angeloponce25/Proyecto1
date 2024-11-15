@@ -13,4 +13,10 @@ if(isset($_POST['registrarUsuario'])) {
     return $sql;
 
 }
+if(isset($_POST['cerrarSesion'])) {
+  
+    $sql = cerrarSesion($_POST);
+    return $sql;
+
+}
 ?>

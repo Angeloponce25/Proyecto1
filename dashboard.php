@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         /*INTEGRANTEES: Joshua Corzo, Franco Coila, Fernando Civincha, Sebastian Basurco*/
         body {
@@ -100,7 +101,7 @@
             <li>Usuarios</li>
             <li>Reportes</li>
             <li>Configuración</li>
-            <li>Cerrar Sesión</li>
+            <li><button onClick="CerrarSesion();">Cerrar Sesión</button></li>
         </ul>
     </div>
     <div class="main-content">
@@ -141,36 +142,8 @@
         </div>
         <div class="Transacciones">
             <h3>Últimas Transacciones</h3>
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Cliente</th>
-                    <th>Monto</th>
-                    <th>Fecha</th>
-                    <th>Estado</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Juan Pérez</td>
-                    <td>$120.00</td>
-                    <td>18/09/2024</td>
-                    <td>Completado</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Ana Martínez</td>
-                    <td>$340.00</td>
-                    <td>18/09/2024</td>
-                    <td>Completado</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Carlos Ruiz</td>
-                    <td>$75.00</td>
-                    <td>18/09/2024</td>
-                    <td>Pendiente</td>
-                </tr>
-            </table>
+            <div id="ejemplo"></div>
+            
         </div>
         <div class="ActvidadReciente">
             <div style="display: flex; justify-content: space-between;">
@@ -198,3 +171,62 @@
     </div>
 </body>
 </html>
+<script>
+    $(document).ready(
+        function()
+        {
+            CargarProductos();
+        }
+    );
+
+
+    function CerrarSesion()
+    {
+        var parametros = 
+        {
+            cerrarSesion:1
+        };
+
+        $.ajax({
+            url: "Controlador/controlador_sesion.php",
+            type: "POST",
+            data: parametros,
+            dataType: "html",
+            success: function (datos)
+            {
+                if(datos=='SI')
+                    {
+                     window.location.href="index.php";   
+                    }
+                    else
+                    {
+                        console.log('error');
+                    }
+            }
+        }
+        );
+    }
+    function CargarProductos()
+    {
+        var parametros = 
+        {
+            CargarProductos:1
+        };
+
+        $.ajax({
+            url: "Controlador/controlador_productos.php",
+            type: "POST",
+            data: parametros,
+            dataType: "html",
+            success: function (datos)
+                {
+                    document.getElementById('ejemplo').innerHTML=datos;
+                    console.log(datos);
+                }
+            }
+            );
+        }
+</script>
+
+
+

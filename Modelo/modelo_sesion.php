@@ -43,4 +43,11 @@ $consulta_validar = "SELECT usuario, password FROM usuarios
     echo 'No Existe';
     }
 }
+function cerrarSesion($parametro)
+{
+    echo 'SI';
+    session_destroy();
+}
+
+
 ?>

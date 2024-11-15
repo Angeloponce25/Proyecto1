@@ -6,7 +6,7 @@
     <title>Inicio de Sesión</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        body {
+    body {
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #8a216f, #0e2c6d);
     height: 100vh;
