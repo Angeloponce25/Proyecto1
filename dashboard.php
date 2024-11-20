@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
     <style>
         /*INTEGRANTEES: Joshua Corzo, Franco Coila, Fernando Civincha, Sebastian Basurco*/
         body {
@@ -143,6 +145,25 @@
         <div class="Transacciones">
             <h3>Últimas Transacciones</h3>
             <div id="ejemplo"></div>
+
+            <table id="example" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Descripcion</th>
+                        </tr>
+                    </thead>
+            
+                    <tbody>
+                    </tbody>
+            
+                    <tfoot>
+                        <tr>
+                            <th>Id</th>
+                            <th>Descripcion</th>
+                        </tr>
+                    </tfoot>
+            </table>
             
         </div>
         <div class="ActvidadReciente">
@@ -221,11 +242,33 @@
             success: function (datos)
                 {
                     document.getElementById('ejemplo').innerHTML=datos;
-                    console.log(datos);
                 }
             }
             );
         }
+    $(function () {
+        var tabla=$('#example').DataTable(
+            {
+                "ajax":
+                {
+                    "url": 'Controlador/controlador_productos.php',
+                    "method": 'GET',
+                    "data":
+                    {
+                        "CargarProductos":1,
+                    },
+                    "dataSrc":""  
+                },
+                "columns":
+                [
+                    {"data":"idproducto"},
+                    {"data":"descripcion"},
+
+                ]
+            }
+        );
+
+    });
 </script>
 
 

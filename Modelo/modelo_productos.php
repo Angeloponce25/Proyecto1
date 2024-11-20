@@ -12,33 +12,7 @@ while($recorre = $ejecutar->fetch_assoc())
     {
         $array_productos[] = $recorre;
     }
-
-    echo '<table>
-                <tr>
-                    <th>ID</th>
-                    <th>Descripcion</th>
-                    <th>Fecha</th>
-                    <th>Estado</th>
-                    <th>Compra</th>
-                    <th>Venta</th>
-                    <th>Stock</th>
-                </tr>';
-
-    foreach($array_productos as $productos)
-    {
-        
-        echo '<tr>
-                    <td>'.$productos['idproducto'].'</td>
-                    <td>'.$productos['descripcion'].'</td>
-                    <td>'.$productos['fecha'].'</td>
-                    <td>'.$productos['estado'].'</td>
-                    <td>'.$productos['pcompra'].'</td>
-                    <td>'.$productos['pventa'].'</td>
-                    <td>'.$productos['stock'].'</td>
-                </tr>';   
-    }
-    
-    echo '</table>';
+    echo json_encode($array_productos);
 
 }
 
