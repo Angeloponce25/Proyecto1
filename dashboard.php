@@ -292,7 +292,17 @@
                         extend:'excelHtml5',
                         text:'A excel',
                         title:'Lista de Productos'
-                    }
+                    },
+                    {
+                        extend:'pdfHtml5',
+                        text:'A pdf',
+                        title:'Lista de Productos'
+                    },
+                    {
+                        extend:'print',
+                        text:'Imprimir',
+                        title:'Lista de Productos'
+                    },
                 ]
             }
         );
