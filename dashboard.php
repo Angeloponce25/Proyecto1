@@ -6,9 +6,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
     <style>
         /*INTEGRANTEES: Joshua Corzo, Franco Coila, Fernando Civincha, Sebastian Basurco*/
         body {
@@ -151,6 +159,10 @@
                         <tr>
                             <th>Id</th>
                             <th>Descripcion</th>
+                            <th>Estado</th>
+                            <th>P. Compra</th>
+                            <th>P. Venta</th>
+                            <th>Stock</th>
                         </tr>
                     </thead>
             
@@ -161,6 +173,10 @@
                         <tr>
                             <th>Id</th>
                             <th>Descripcion</th>
+                            <th>Estado</th>
+                            <th>P. Compra</th>
+                            <th>P. Venta</th>
+                            <th>Stock</th>
                         </tr>
                     </tfoot>
             </table>
@@ -263,7 +279,20 @@
                 [
                     {"data":"idproducto"},
                     {"data":"descripcion"},
+                    {"data":"estado"},
+                    {"data":"pcompra"},
+                    {"data":"pventa"},
+                    {"data":"stock"},
 
+                ],
+                dom:'Bfrtip', //habilitar la barra de botones
+                buttons:
+                [
+                    {
+                        extend:'excelHtml5',
+                        text:'A excel',
+                        title:'Lista de Productos'
+                    }
                 ]
             }
         );
