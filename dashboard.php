@@ -143,10 +143,23 @@
         </div>
         <div class="formulario">
             <h3>Formulario de Contacto</h3>
-            <form>
-                <input type="text" placeholder="Tu nombre">
-                <input type="email" placeholder="Tu correo electrónico">
-                <textarea placeholder="Tu mensaje"></textarea>
+            <form id="FormularioProducto">
+                <label for="descripcion">Descripcion</label>
+                <input type="text" id="txtdescripcion" name="txtdescripcion" placeholder="descripcion del Producto">
+                <label for="fecha">Fecha</label>
+                <input type="date" id="txtfecha" name="txtfecha">
+                <label for="estado">Estado</label>
+                <select name="txtEstado" id="txtEstado">
+                    <option value="1">Activo</option>
+                    <option value="2">Desactivado</option>
+                </select>
+                <br>                
+                <label for="precio_compra">Precio Compra</label>
+                <input type="number" id="txtprecio_compra" name="txtprecio_compra">
+                <label for="precio_venta">Precio Venta</label>
+                <input type="number" id="txtprecio_venta" name="txtprecio_venta">
+                <label for="stock">Stock</label>
+                <input type="number" id="txtstock" name="txtstock">
                 <button type="submit">Enviar</button>
             </form>
         </div>
@@ -209,6 +222,10 @@
 </body>
 </html>
 <script>
+    document.getElementById('FormularioProducto').onsubmit = function(event) 
+    {
+        
+    }
     $(document).ready(
         function()
         {
