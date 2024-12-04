@@ -160,7 +160,7 @@
                 <input type="number" id="txtprecio_venta" name="txtprecio_venta">
                 <label for="stock">Stock</label>
                 <input type="number" id="txtstock" name="txtstock">
-                <button type="submit">Enviar</button>
+                <input type="submit" value="Enviar">
             </form>
         </div>
         <div class="Transacciones">
@@ -224,8 +224,14 @@
 <script>
     document.getElementById('FormularioProducto').onsubmit = function(event) 
     {
-        
+        event.preventDefault();
+        var descripcion = document.getElementById('txtdescripcion').value;
+        var fecha = document.getElementById('txtfecha').value;
+        console.log(descripcion);
     }
+
+
+
     $(document).ready(
         function()
         {
