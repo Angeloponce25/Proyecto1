@@ -233,6 +233,7 @@
         var stock = document.getElementById('txtstock').value;
         var parametros = 
         {
+            crearProductos:1,
             descripcion:descripcion,
             fecha:fecha,
             estado:estado,
@@ -240,7 +241,23 @@
             precio_venta:precio_venta,
             stock:stock
         }
-        console.log(parametros);
+        $.ajax({
+	       url: "Controlador/controlador_productos.php",
+		   type: "POST",
+		   data: parametros,
+     	   dataType: "html",
+		   success: function (datos)
+           {
+                if(datos=='SI')
+                {
+                    console.log('correcto');
+                }
+                else
+                {
+                    console.log('error');
+                }
+			}
+		   }); 
     }
 
 
