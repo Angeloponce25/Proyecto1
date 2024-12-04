@@ -227,7 +227,20 @@
         event.preventDefault();
         var descripcion = document.getElementById('txtdescripcion').value;
         var fecha = document.getElementById('txtfecha').value;
-        console.log(descripcion);
+        var estado = document.getElementById('txtEstado').value;
+        var precio_compra = document.getElementById('txtprecio_compra').value;
+        var precio_venta = document.getElementById('txtprecio_venta').value;
+        var stock = document.getElementById('txtstock').value;
+        var parametros = 
+        {
+            descripcion:descripcion,
+            fecha:fecha,
+            estado:estado,
+            precio_compra:precio_compra,
+            precio_venta:precio_venta,
+            stock:stock
+        }
+        console.log(parametros);
     }
 
 
