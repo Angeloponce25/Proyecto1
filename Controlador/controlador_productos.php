@@ -8,4 +8,12 @@ if(isset($_GET['CargarProductos'])) {
 
 }
 
+if(isset($_POST['crearProductos'])) {
+  
+    $sql = crearProductos($_POST);
+    return $sql;
+
+}
+
+
 ?>
