@@ -176,6 +176,7 @@
                             <th>P. Compra</th>
                             <th>P. Venta</th>
                             <th>Stock</th>
+                            <th>Accion</th>
                         </tr>
                     </thead>
             
@@ -190,6 +191,7 @@
                             <th>P. Compra</th>
                             <th>P. Venta</th>
                             <th>Stock</th>
+                            <th>Accion</th>
                         </tr>
                     </tfoot>
             </table>
@@ -251,6 +253,7 @@
                 if(datos=='SI')
                 {
                     console.log('correcto');
+                    $('#example').DataTable().ajax.reload();
                 }
                 else
                 {
@@ -336,6 +339,14 @@
                     {"data":"pcompra"},
                     {"data":"pventa"},
                     {"data":"stock"},
+                    {
+                        "data": null,
+                        "render": function(data, type, row, meta) {
+                            return `
+                                <button class="btn btn-danger" onclick="EliminarProducto(${row.idproducto})">Eliminar</button>
+                            `;
+                        }
+                    }
 
                 ],
                 dom:'Bfrtip', //habilitar la barra de botones
@@ -361,6 +372,11 @@
         );
 
     });
+
+    function EliminarProducto(id) 
+    {
+        alert(id);    
+    }
 </script>
 
 
