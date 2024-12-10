@@ -14,6 +14,12 @@ if(isset($_POST['crearProductos'])) {
     return $sql;
 
 }
+if(isset($_POST['EliminarProducto'])) {
+  
+    $sql = EliminarProducto($_POST);
+    return $sql;
+
+}
 
 
 ?>

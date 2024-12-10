@@ -375,7 +375,23 @@
 
     function EliminarProducto(id) 
     {
-        alert(id);    
+        var parametros = 
+        {
+            EliminarProducto:1,
+            id:id
+        }
+        // SI VAS ACTUALIZAR ESTA ESTE CODIGO TAMBIEN ACTUALIZA EL MODELO Y EL CONTROLADOR
+        $.ajax({
+            url: "Controlador/controlador_productos.php",
+            type: "POST",
+            data: parametros,
+            dataType: "html",
+            success: function (datos)
+                {                   
+                    $('#example').DataTable().ajax.reload();
+                }
+            }
+            );
     }
 </script>
 
